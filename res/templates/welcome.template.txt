@@ -6,19 +6,19 @@
 #                                                                              #
 #                Welcome to ENGG1340 course project.                           #
 #                            by                                                #
-#                            {{ author_name_1           }}                     #
+#                            {{ author_name_1:l           }}                   #
 #                            and                                               #
-#                            {{ author_name_2           }}                     #
+#                            {{ author_name_2:l           }}                   #
 #                                                                              #
 #                                                                              #
 #                                                                              #
-#   {{version_code}}                                       {{version_code}}    #
-#                                                                              #
-#                                                                              #
+#   {{version_code:l}}                                       {{version_code:r}}#
 #                                                                              #
 #                                                                              #
 #                                                                              #
 #                                                                              #
-#                                                                              #
+#                            {{ author_name_1:l           }}                   #
+#                            {{ author_name_1:c           }}                   #
+#                            {{ author_name_1:r           }}                   #
 #                                                                              #
 ################################################################################
