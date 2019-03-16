@@ -1,24 +1,24 @@
 ################################################################################
-
-
-
-
-
-                             Welcome to ENGG1340 course project.
-                             by
-                             {{ author_name_1           }}
-                             and
-                             {{ author_name_2           }}
-
-
-{{version_code}}                                                {{version_code}}
-
-
-
-
-
-
-
-
-
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                Welcome to ENGG1340 course project.                           #
+#                            by                                                #
+#                            {{ author_name_1           }}                     #
+#                            and                                               #
+#                            {{ author_name_2           }}#                    #                                                         #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#   {{version_code}}                                       {{version_code}}    #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
+#                                                                              #
 ################################################################################

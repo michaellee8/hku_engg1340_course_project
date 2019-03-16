@@ -12,7 +12,7 @@ class TemplateResolver {
   std::string getTemplateFromFS(std::string path);
   std::string getTemplate(std::string path);
   std::map<std::string, std::string> cache;
-  std::string trim(std::string,size_t);
+  std::string trim(std::string, size_t);
  public:
   std::string renderTemplate(std::string, std::map<std::string, std::string>);
 };
