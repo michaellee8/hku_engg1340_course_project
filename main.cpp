@@ -15,6 +15,6 @@ void render() {
   std::map<std::string, std::string> m;
   m["author_name_1"] = "michaellee8";
   m["author_name_2"] = "Lee Chun Kok Michael";
-  m["version code"] = "v0.0.1";
+  m["version_code"] = "v0.0.1";
   std::cout << tr.renderTemplate("welcome", m);
 }

@@ -8,7 +8,7 @@
 #                            by                                                #
 #                            {{ author_name_1           }}                     #
 #                            and                                               #
-#                            {{ author_name_2           }}#                    #                                                         #
+#                            {{ author_name_2           }}                     #
 #                                                                              #
 #                                                                              #
 #                                                                              #

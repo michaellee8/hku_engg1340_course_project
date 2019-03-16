@@ -27,7 +27,7 @@ std::string TemplateResolver::getTemplate(std::string path) {
 }
 
 std::string TemplateResolver::trim(std::string s, size_t l) {
-  auto rs = s;
+  auto rs(s);
   while (rs.length() < l) {
     rs += " ";
   }
@@ -37,20 +37,20 @@ std::string TemplateResolver::trim(std::string s, size_t l) {
 // Took reference here https://stackoverflow.com/questions/26281979/c-loop-through-map
 std::string TemplateResolver::renderTemplate(std::string name, std::map<std::string, std::string> textMap) {
   auto tpl = this->getTemplate("./res/templates/" + name + ".template.txt");
-  auto nstr = tpl;
+  std::string nstr(tpl);
   std::regex r("\\{\\{\\s*(\\w+)\\s*\\}\\}"); // This regular expression matches all placeholders
   std::smatch mr;
   std::regex_iterator<std::string::iterator> rit(tpl.begin(), tpl.end(), r);
   std::regex_iterator<std::string::iterator> rend;
   while (rit != rend) {
-    auto key = (*rit)[0].str();
+    auto key = (*rit)[1].str();
     if (textMap.find(key) == textMap.end()) {
       // key does not exist
       ++rit;
       continue;
     }
-    nstr = rit->prefix().str() + this->trim(textMap[key], (size_t) rit->length()) + rit->suffix().str();
-
+    nstr.replace(rit->position(), rit->length(), this->trim(textMap[key], rit->length()));
+    ++rit;
   }
   return nstr;
 }
