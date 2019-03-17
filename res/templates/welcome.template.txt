@@ -14,7 +14,7 @@
 #                                                                              #
 #   {{version_code:l}}                                       {{version_code:r}}#
 #                                                                              #
-#                                                                              #
+#       Type menu to continue.                                                 #
 #                                                                              #
 #                                                                              #
 #                            {{ author_name_1:l           }}                   #

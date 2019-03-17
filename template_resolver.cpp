@@ -72,15 +72,15 @@ std::string TemplateResolver::renderTemplate(std::string name, std::map<std::str
     }
     std::string tstr;
     if (mode == "c") {
-      tstr = this->ctrim(textMap[key], rit->length());
+      tstr = this->ctrim(textMap[key], (size_t) rit->length());
     } else if (mode == "l") {
-      tstr = this->ltrim(textMap[key], rit->length());
+      tstr = this->ltrim(textMap[key], (size_t) rit->length());
     } else if (mode == "r") {
-      tstr = this->rtrim(textMap[key], rit->length());
+      tstr = this->rtrim(textMap[key], (size_t) rit->length());
     } else {
       throw std::invalid_argument("no padding options");
     }
-    nstr.replace(rit->position(), rit->length(), tstr);
+    nstr.replace((size_t) rit->position(), (size_t) rit->length(), tstr);
     ++rit;
   }
   return nstr;

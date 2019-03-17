@@ -1,0 +1,24 @@
+################################################################################
+
+
+
+    Menu: type the respective command to do the function
+    1. Create new employee : create
+    2. Search for employee : search
+    3. Delete employee     : delete
+    4. Edit/Fire employee  : edit
+    5. Query system        : query
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################################
+command:
