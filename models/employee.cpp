@@ -20,12 +20,42 @@ bool Employee::insert(Employee &e) {
   e.fileId = fileId;
   auto ser = Employee::serialize(e);
   Employee::increaseCounter();
-  return writeToFS("./data/employees/" + e.fileId+".employeedata", ser);
+  return writeToFS("./data/employees/" + e.fileId + ".employeedata", ser);
 }
 
-std::vector<Employee> select(const std::function<bool(Employee)> selectFunc){
-  for(auto& p: fs::directory_iterator("./data/employees/")){
+std::vector<Employee> Employee::select(const std::function<bool(Employee)> selectFunc) {
+  std::vector<Employee> emps;
+  for (auto &p: fs::directory_iterator("./data/employees/")) {
+    if (!p.path().has_extension() || p.path().extension() != ".employeedata") {
+      // Not the data file!
+      continue;
+    }
+    auto s = readFromFS(p.path());
+    auto e = Employee::deserialize(s);
+    if (selectFunc(e)) {
+      emps.push_back(e);
+    }
+  }
+  return emps;
+}
 
+bool Employee::remove() {
+  auto fileId = std::string(this->fileId);
+  this->fileId = "";
+  return fs::remove("./data/employees/" + fileId + ".employeedata");
+}
+
+bool Employee::update() {
+  auto ser = Employee::serialize(*this);
+  return writeToFS("./data/employees/" + this->fileId + ".employeedata", ser);
+}
+
+bool Employee::upsert() {
+  if (this->fileId.empty()) {
+    // file not exist
+    return Employee::insert(*this);
+  } else {
+    return this->update();
   }
 }
 

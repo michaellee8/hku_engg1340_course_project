@@ -11,9 +11,8 @@
 
 class Employee {
  public:
-  static bool insert(Employee&);
+  static bool insert(Employee &);
   static std::vector<Employee> select(std::function<bool(Employee)>);
-  static bool remove(std::function<bool(Employee)>);
 
   bool remove();
   bool update();
