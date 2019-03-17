@@ -1,9 +1,11 @@
 #include <iostream>
 #include "./template_resolver.h"
+#include "./util.h"
 
 void render();
 
 int main() {
+  std::cout << generateUuid() << std::endl << generateUuid();
   render();
   return 0;
 }
