@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <fstream>
+#include <map>
 
 inline std::string randomHex() {
   // Took reference from here https://stackoverflow.com/questions/5100718/integer-to-hex-string-in-c
@@ -42,4 +43,8 @@ std::string readFromFS(std::string path) {
   buffer << t.rdbuf();
   t.close();
   return buffer.str();
+}
+
+bool keyExists(std::map<std::string, std::string> map, std::string key) {
+  return map.find(key) != map.end();
 }

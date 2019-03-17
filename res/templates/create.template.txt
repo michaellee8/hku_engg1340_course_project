@@ -1,0 +1,15 @@
+
+Creating new employees
+
+Name:   {{input_name:l                                                }}
+Age:    {{input_age:l                                                 }}
+Role:   {{input_role:l                                                }}
+Salary: {{input_salary:l                                              }}
+Fired:  {{input_fired:l                                               }}
+Custom: {{input_custom:l                                              }}
+
+
+{{status:c                         }}
+
+
+Input {{field:r    }} :
