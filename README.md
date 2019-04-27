@@ -35,8 +35,10 @@ Maybe we can make a Python-like query system that allow users to do complex quer
 ## Execution instruction
 For ssh user, run `./prep.sh` before using the app in current working directory.
 
-The first page of the program is the welcome teamplate. User should input 'menu' to get into the menu page. User can choose different function by inputtung the respective command. 
+The first page of the program is the welcome template. User should input 'menu' to get into the menu page. User can choose different function by inputtung the respective command. 
 
 For `create` function, the program will require user to input the `name`, `age`, `role`, `salary`, `fired`(whether the employee is fired or not) and `custom`. Note that user should input 'yes' or 'no' for the `fired` attribute.  After inputting all attributes of the new employee, the data of the employee will be saved. User should then input 'meun' to get back to the menu page.
 
-For `search` function,
+For `search` function, user can search for employees according to different attributes by inputting the corresponding command. Note that for searching by name, user should input the __full name__ of the employee, otherwise the employee will not be shown. By inputting the command 'all', the program will reqiure user to input a random non-empty value, all the employees will then be listed. After getting the results of the search, user can input 'prev' or 'next' to switch the page of the list, or input 'menu' to go back to the menu page. User can also input the `id` of a specified employee to get into the managing page to manage the employee.
+
+In the managing page, user can choose to input the attribute name to edit the corresponding value of the employee. For example, to edit `role` of the employee, type 'role' in the managing page, and input the new value of `role`. The new value of employee `role` will then be saved. ~~~~~~ User can also enter 'delete' to remove the whole employee from the employee list. To get back to the list, type 'list' and type 'menu' to get back to the menu page. User can also type '.exit' to exit the program directly.
