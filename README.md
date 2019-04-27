@@ -33,5 +33,5 @@ In this project, we use a modular template system that allow us to work easier. 
 Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|cattr`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically SQL. 
 
 ## Execution instruction
-For ssh user, run ./prep.sh first before using the app in current working directory.
+For ssh user, run `./prep.sh` first before using the app in current working directory.
 The first page of the program is the welcome teamplate. User should input `'menu'` to get into the menu page. User can choose different function by inputtung the respective command.
