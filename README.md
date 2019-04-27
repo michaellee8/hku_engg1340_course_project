@@ -35,8 +35,8 @@ Maybe we can make a Python-like query system that allow users to do complex quer
 ## Execution instruction
 For ssh user, run `./prep.sh` before using the app in current working directory.
 
-The first page of the program is the welcome teamplate. User should input 'menu' to get into the menu page. User can choose different function by inputtung the respective command. 
+The first page of the program is the welcome template. User should input 'menu' to get into the menu page. User can choose different function by inputtung the respective command. 
 
 For `create` function, the program will require user to input the `name`, `age`, `role`, `salary`, `fired`(whether the employee is fired or not) and `custom`. Note that user should input 'yes' or 'no' for the `fired` attribute.  After inputting all attributes of the new employee, the data of the employee will be saved. User should then input 'meun' to get back to the menu page.
 
-For `search` function,
+For `search` function, user can search for employees according to different attributes by inputting the corresponding command. Note that for searching by name, user should input the full name of the employee, otherwise the employee cannot be showed. By inputting the command `'all'`, the program will reqiure user to input a random non-empty value, all the employees will then be listed. After getting the results of the search, user can input `'prev'` or `'next`' to switch the page of the list, or input `'menu'` to go back to the menu page. User can also input the `id` of a specified employee to manage the employee.
