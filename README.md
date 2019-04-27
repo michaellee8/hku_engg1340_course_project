@@ -9,7 +9,17 @@ In this project, we assumes the terminal to be a xterm of size 80x24. Alternativ
 Companies, especially those in big scale, usually contain numbers of employees. Those employees hold different types of information and data. For example, their first name and family name, age, role, salary, entry time and more. Without a proper data storing and manipulating system, it is hard for the employers to check or edit the data of the employees. 
 
 ## Problem setting
-To esaily access to and make changes on the data of employees, a complete data manipulating system is required. In this project, several functions will be included in our employee mamagement system. 'Create' function to add new employees into the data base system (employee ID will be automatically generated). 'Search' function allowing employers or managers to search for employees by employee ID, name, age or salary. 'List' function to show all current employees working in the company. 'Delete' function to fire current employees. 'Edit' function to make changes on the data of employees and also 'Query' function. 
+All attributes should be well-input when adding new employees. Therefore, data managing and editting works can be done without errors. Also for ordinary people, we assume that the name of the employees will not be longer than 20 characters. For a extremely long employee name, our 'List' function will not be able to show the whole spelling of the employee name. However, the whole spelling of the employee name can still be showed in the 'Profile page'.
+
+## Requirements
+
+1. User can create new employees with employee ID automatically assigned with the input name, age, role, and salary.
+2. User can search for the employees by their ID, name, age or role, all attributes of the employee will then be listed.
+3. User can delete employees and all their attributes.
+4. User can edit any of the attributes of employees. 
+5. User can search for employees within a salary range.
+6. User can add new attributes of employees according to their needs.
+7. User can operate complex query with logic operators.
 
 ## Template system
 In this project, we use a modular template system that allow us to work easier. All templates are resolved against `res/templates`. Templates are strings with a specific markers are place holders, e.g. `{{ text}}`. Each time a template is resolved, placeholders will be replaced with strings provided padded or cut into length of the placeholder. For example, given `{{_text___}}`, which have 12 characters, and text `abc`, it will be replaced into `abc_________`. Note that `_` represent spaces. Now the version requires you to put `c|l|r` to represent alignment of the text inserted.
@@ -21,3 +31,4 @@ In this project, we use a modular template system that allow us to work easier. 
 
 ## Additional funcion
 Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|cattr`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically SQL. 
+
