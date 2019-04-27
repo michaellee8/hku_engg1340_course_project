@@ -138,7 +138,8 @@ ControllerResult searchController(std::string route,
   renderParams["cp"] = params["page"];
   renderParams["tp"] = params["total_pages"];
 
-  for (int i = (std::stoi(params["page"]) - 1) * 10; i < queryResult.size(); i++) {
+  for (int i = (std::stoi(params["page"]) - 1) * 10; i < queryResult.size() && i < (std::stoi(params["page"])) * 10;
+       i++) {
     auto entry = i % 10;
     renderParams["i" + std::to_string(entry)] = std::to_string(queryResult[i].id);
     renderParams["n" + std::to_string(entry)] = queryResult[i].name;
@@ -149,7 +150,7 @@ ControllerResult searchController(std::string route,
     renderParams["c" + std::to_string(entry)] = queryResult[i].customAttr;
   }
 
-  for (int i = queryResult.size(); i < (std::stoi(params["total_pages"])) * 10; i++) {
+  for (int i = queryResult.size(); i < (std::stoi(params["page"])) * 10; i++) {
     auto entry = i % 10;
     renderParams["i" + std::to_string(entry)] = "";
     renderParams["n" + std::to_string(entry)] = "";
