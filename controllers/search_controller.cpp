@@ -12,6 +12,7 @@
 #include "../util.h"
 #include "../models/employee.h"
 #include "cmath"
+#include "menu_controller.h"
 
 const std::vector<std::string> criterias{
     "id",
@@ -68,8 +69,25 @@ ControllerResult searchController(std::string route,
   }
 
 
-  // Check if we have navigation command
-//  if (keyExists(params,"page") && keyExists(params,""))
+  // Process navigation commands
+  if (keyExists(params, "page") && keyExists(params, "total_pages") && (input == "prev" || input == "next")) {
+    if (input == "prev") {
+      params["page"] = std::to_string(std::stoi(params["page"]) - 1);
+    } else if (input == "next") {
+      params["page"] = std::to_string(std::stoi(params["page"]) + 1);
+    }
+    return searchController(route, params, "", resolver);
+  }
+
+  // Process return command
+  if (input == "menu") {
+    return menuController("/menu", std::map<std::string, std::string>(), "", resolver);
+  }
+
+  // Process editing command
+  if (isInt(input)) {
+
+  }
 
 
   // We have both criteria and value now, let's do the real search
@@ -97,13 +115,9 @@ ControllerResult searchController(std::string route,
         Employee::select([salary](Employee e) -> bool { return e.salary <= salary; });
   }
 
-
-
-
-
   if (!keyExists(params, "page") || !keyExists(params, "total_pages")
       || std::stoul(params["page"]) > queryResult.size() / 10 + 1
-      || std::stoul(params["page"]) < 0) {
+      || std::stoul(params["page"]) <= 0) {
     params["total_pages"] = std::to_string(queryResult.size() / 10 + 1);
     params["page"] = std::to_string(1);
   }
