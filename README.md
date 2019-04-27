@@ -9,7 +9,7 @@ In this project, we assumes the terminal to be a xterm of size 80x24. Alternativ
 Companies, especially those in big scale, usually contain numbers of employees. Those employees hold different types of information and data. For example, their first name and family name, age, role, salary, entry time and more. Without a proper data storing and manipulating system, it is hard for the employers to check or edit the data of the employees. 
 
 ## Problem setting
-All attributes should be well-input when adding new employees. Therefore, data managing and editting works can be done without errors. Also for ordinary people, we assume that the name of the employees will not be longer than 20 characters. For a extremely long employee name, our 'List' function will not be able to show the whole spelling of the employee name. However, the whole spelling of the employee name can still be showed in the 'Profile page'.
+All attributes should be well-input when adding new employees. Therefore, data managing and editing works can be done without errors. Also for ordinary people, we assume that the name of the employees will not be longer than 20 characters. For a extremely long employee name, our 'List' function will not be able to show the whole spelling of the employee name. However, the whole spelling of the employee name can still be showed in the 'Profile page'.
 
 ## Requirements
 
