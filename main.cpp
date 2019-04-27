@@ -12,6 +12,7 @@
 #include "./controllers/create_controller.h"
 #include "./controllers/search_controller.h"
 #include "./controllers/edit_controller.h"
+#include "./controllers/query_controller.h"
 
 void start();
 
@@ -41,6 +42,7 @@ void start() {
     routes["/create"] = createController;
     routes["/search"] = searchController;
     routes["/edit"] = editController;
+    routes["/query"] = queryController;
     TemplateResolver resolver;
 
     std::string nextInput = "";

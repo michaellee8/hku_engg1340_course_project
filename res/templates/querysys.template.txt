@@ -1,0 +1,21 @@
+Search report
+Search by query {{query:l                                                     }}
+
+ID      | Name                 | Age    | Role       | Salary | Fired  | Custom
+{{i0:l}}|{{n0:l              }}|{{a0:l}}|{{r0:l    }}|{{s0:l}}|{{f0:l}}|{{c0:l}}
+{{i1:l}}|{{n1:l              }}|{{a1:l}}|{{r1:l    }}|{{s1:l}}|{{f1:l}}|{{c1:l}}
+{{i2:l}}|{{n2:l              }}|{{a2:l}}|{{r2:l    }}|{{s2:l}}|{{f2:l}}|{{c2:l}}
+{{i3:l}}|{{n3:l              }}|{{a3:l}}|{{r3:l    }}|{{s3:l}}|{{f3:l}}|{{c3:l}}
+{{i4:l}}|{{n4:l              }}|{{a4:l}}|{{r4:l    }}|{{s4:l}}|{{f4:l}}|{{c4:l}}
+{{i5:l}}|{{n5:l              }}|{{a5:l}}|{{r5:l    }}|{{s5:l}}|{{f5:l}}|{{c5:l}}
+{{i6:l}}|{{n6:l              }}|{{a6:l}}|{{r6:l    }}|{{s6:l}}|{{f6:l}}|{{c6:l}}
+{{i7:l}}|{{n7:l              }}|{{a7:l}}|{{r7:l    }}|{{s7:l}}|{{f7:l}}|{{c7:l}}
+{{i8:l}}|{{n8:l              }}|{{a8:l}}|{{r8:l    }}|{{s8:l}}|{{f8:l}}|{{c8:l}}
+{{i9:l}}|{{n9:l              }}|{{a9:l}}|{{r9:l    }}|{{s9:l}}|{{f9:l}}|{{c9:l}}
+
+{{n:c}} entries in total
+Showing Page {{cp:c}}/{{tp:c}} Now
+Enter "prev"/"next" to switch pages, "menu" to go back to menu
+Enter a number to go to employee with respective id
+
+query:
