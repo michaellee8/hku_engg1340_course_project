@@ -30,7 +30,7 @@ In this project, we use a modular template system that allow us to work easier. 
 3. You are highly suggest to use CLion to develop this thing, it just works.
 
 ## Additional funcion
-Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|cattr`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically SQL. 
+Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|custom`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically less advanced version of SQL.
 
 ## Execution instruction
 For ssh user, run `./prep.sh` before using the app in current working directory.
