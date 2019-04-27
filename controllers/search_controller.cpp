@@ -121,6 +121,9 @@ ControllerResult searchController(std::string route,
     queryResult = Employee::select([](Employee e) -> bool { return true; });
   }
 
+  // Sort query results by id
+  std::sort(queryResult.begin(), queryResult.end(), [](Employee e1, Employee e2) { return e1.id < e2.id; });
+
   if (!keyExists(params, "page") || !keyExists(params, "total_pages")
       || std::stoul(params["page"]) > queryResult.size() / 10 + 1
       || std::stoul(params["page"]) <= 0) {
