@@ -87,7 +87,7 @@ Employee Employee::deserialize(const std::string s) {
   std::getline(ss, line);
   e.role = std::string(line);
   std::getline(ss, line);
-  e.salary = std::stof(line);
+  e.salary = std::stoi(line);
   std::getline(ss, line);
   std::istringstream(line) >> e.fired;
   std::getline(ss, line);
@@ -106,4 +106,62 @@ bool Employee::setCounter(int i) {
 
 bool Employee::increaseCounter() {
   return Employee::setCounter(Employee::getCounter() + 1);
+}
+
+std::string Employee::getField(std::string fieldName) {
+  if (fieldName == "fid" || fieldName == "fileId") {
+    return this->fileId;
+  }
+  if (fieldName == "id") {
+    return std::to_string(this->id);
+  }
+  if (fieldName == "name") {
+    return this->name;
+  }
+  if (fieldName == "age") {
+    return std::to_string(this->age);
+  }
+  if (fieldName == "role") {
+    return this->role;
+  }
+  if (fieldName == "salary") {
+    return std::to_string(salary);
+  }
+  if (fieldName == "fired") {
+    return this->fired ? "Y" : "N";
+  }
+  if (fieldName == "custom") {
+    return this->customAttr;
+  }
+}
+
+bool Employee::setField(std::string fieldName, std::string value) {
+
+  if (fieldName == "name") {
+    this->name = value;
+    return true;
+  }
+  if (fieldName == "age" && isInt(value)) {
+    this->age = std::stoi(value);
+    return true;
+  }
+  if (fieldName == "role") {
+    this->role = value;
+    return true;
+  }
+  if (fieldName == "salary" && isInt(value)) {
+    this->salary = std::stoi(value);
+    return true;
+  }
+  if (fieldName == "fired") {
+    auto lval = value;
+    std::transform(lval.begin(), lval.end(), lval.begin(), ::tolower);
+    this->fired = lval == "y" || lval == "yes" || lval == "true" || lval == "t";
+    return true;
+  }
+  if (fieldName == "custom") {
+    this->customAttr = value;
+    return true;
+  }
+  return false;
 }

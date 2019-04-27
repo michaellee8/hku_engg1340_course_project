@@ -28,11 +28,11 @@ ControllerResult createController(std::string route,
     params["input_" + params["field"]] = input;
     if (!keyExists(params, "input_name")) {
       params["field"] = "name";
-    } else if (!keyExists(params, "input_age")) {
+    } else if (!keyExists(params, "input_age") || !isInt(params["input_age"])) {
       params["field"] = "age";
     } else if (!keyExists(params, "input_role")) {
       params["field"] = "role";
-    } else if (!keyExists(params, "input_salary")) {
+    } else if (!keyExists(params, "input_salary") || !isInt(params["input_salary"])) {
       params["field"] = "salary";
     } else if (!keyExists(params, "input_fired")) {
       params["field"] = "fired";
@@ -43,8 +43,8 @@ ControllerResult createController(std::string route,
       Employee e;
       e.name = params["input_name"];
       e.role = params["input_role"];
-      e.age = std::stof(params["input_age"]);
-      e.salary = std::stof(params["input_salary"]);
+      e.age = std::stoi(params["input_age"]);
+      e.salary = std::stoi(params["input_salary"]);
       e.fired = params["input_fired"] == "true" || params["input_fired"] == "yes";
       e.customAttr = params["input_custom"];
       if (!e.upsert()) {

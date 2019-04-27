@@ -55,7 +55,7 @@ ControllerResult searchController(std::string route,
           params["criteria"] == "role" ||
           params["criteria"] == "all" ||
           ((params["criteria"] == "age" || params["criteria"] == "salary higher"
-              || params["criteria"] == "salary lower") && isNumber(input)) ||
+              || params["criteria"] == "salary lower") && isInt(input)) ||
           (params["criteria"] == "id" && isInt(input))
           ) {
         params["value"] = input;
@@ -106,15 +106,15 @@ ControllerResult searchController(std::string route,
     auto role = params["value"];
     queryResult = Employee::select([role](Employee e) -> bool { return e.role == role; });
   } else if (params["criteria"] == "age") {
-    auto age = std::stof(params["value"]);
+    auto age = std::stoi(params["value"]);
     queryResult =
-        Employee::select([age](Employee e) -> bool { return (int) std::round(e.age) == (int) std::round(age); });
+        Employee::select([age](Employee e) -> bool { return e.age == age; });
   } else if (params["criteria"] == "salary higher") {
-    auto salary = std::stof(params["value"]);
+    auto salary = std::stoi(params["value"]);
     queryResult =
         Employee::select([salary](Employee e) -> bool { return e.salary >= salary; });
   } else if (params["criteria"] == "salary lower") {
-    auto salary = std::stof(params["value"]);
+    auto salary = std::stoi(params["value"]);
     queryResult =
         Employee::select([salary](Employee e) -> bool { return e.salary <= salary; });
   } else if (params["criteria"] == "all") {
@@ -139,9 +139,9 @@ ControllerResult searchController(std::string route,
     auto entry = i % 10;
     renderParams["i" + std::to_string(entry)] = std::to_string(queryResult[i].id);
     renderParams["n" + std::to_string(entry)] = queryResult[i].name;
-    renderParams["a" + std::to_string(entry)] = std::to_string((long long int) queryResult[i].age);
+    renderParams["a" + std::to_string(entry)] = std::to_string(queryResult[i].age);
     renderParams["r" + std::to_string(entry)] = queryResult[i].role;
-    renderParams["s" + std::to_string(entry)] = std::to_string((long long int) queryResult[i].salary);
+    renderParams["s" + std::to_string(entry)] = std::to_string(queryResult[i].salary);
     renderParams["f" + std::to_string(entry)] = queryResult[i].fired ? "Y" : "N";
     renderParams["c" + std::to_string(entry)] = queryResult[i].customAttr;
   }

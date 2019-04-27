@@ -18,12 +18,15 @@ class Employee {
   bool update();
   bool upsert();
 
+  std::string getField(std::string);
+  bool setField(std::string, std::string);
+
   std::string fileId;
-  int id;
+  long long int id;
   std::string name;
-  float age;
+  long long int age;
   std::string role;
-  float salary;
+  long long int salary;
   bool fired;
   std::string customAttr;
 

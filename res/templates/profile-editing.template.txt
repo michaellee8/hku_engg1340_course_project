@@ -10,6 +10,7 @@ Currently showing {{name:l                                       }} {{id:l}}
     Custom: {{custom:l                                                        }}
 
 Please enter new value for {{field:l                   }}
+Old value is {{old:l                                                          }}
 
 
 Value:
