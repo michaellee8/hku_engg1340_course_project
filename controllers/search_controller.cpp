@@ -67,6 +67,11 @@ ControllerResult searchController(std::string route,
     return ControllerResult("/search", params, "", resolver.renderTemplate("search-value", renderParams));
   }
 
+
+  // Check if we have navigation command
+//  if (keyExists(params,"page") && keyExists(params,""))
+
+
   // We have both criteria and value now, let's do the real search
   std::vector<Employee> queryResult;
   if (params["criteria"] == "id") {
@@ -92,8 +97,13 @@ ControllerResult searchController(std::string route,
         Employee::select([salary](Employee e) -> bool { return e.salary <= salary; });
   }
 
+
+
+
+
   if (!keyExists(params, "page") || !keyExists(params, "total_pages")
-      || std::stoul(params["page"]) > queryResult.size() / 10 + 1) {
+      || std::stoul(params["page"]) > queryResult.size() / 10 + 1
+      || std::stoul(params["page"]) < 0) {
     params["total_pages"] = std::to_string(queryResult.size() / 10 + 1);
     params["page"] = std::to_string(1);
   }
@@ -101,7 +111,7 @@ ControllerResult searchController(std::string route,
   std::map<std::string, std::string> renderParams;
   renderParams["criteria"] = params["criteria"];
   renderParams["value"] = params["value"];
-  renderParams["n"] = queryResult.size();
+  renderParams["n"] = std::to_string(queryResult.size());
   renderParams["cp"] = params["page"];
   renderParams["tp"] = params["total_pages"];
 
@@ -109,14 +119,14 @@ ControllerResult searchController(std::string route,
     auto entry = i % 10;
     renderParams["i" + std::to_string(entry)] = std::to_string(queryResult[i].id);
     renderParams["n" + std::to_string(entry)] = queryResult[i].name;
-    renderParams["a" + std::to_string(entry)] = std::to_string(queryResult[i].age);
+    renderParams["a" + std::to_string(entry)] = std::to_string((long long int) queryResult[i].age);
     renderParams["r" + std::to_string(entry)] = queryResult[i].role;
-    renderParams["s" + std::to_string(entry)] = std::to_string(queryResult[i].salary);
+    renderParams["s" + std::to_string(entry)] = std::to_string((long long int) queryResult[i].salary);
     renderParams["f" + std::to_string(entry)] = queryResult[i].fired ? "Y" : "N";
     renderParams["c" + std::to_string(entry)] = queryResult[i].customAttr;
   }
 
-  for (int i = queryResult.size(); i < (std::stoi(params["total_pages"]) - 1) * 10; i++) {
+  for (int i = queryResult.size(); i < (std::stoi(params["total_pages"])) * 10; i++) {
     auto entry = i % 10;
     renderParams["i" + std::to_string(entry)] = "";
     renderParams["n" + std::to_string(entry)] = "";
@@ -126,6 +136,6 @@ ControllerResult searchController(std::string route,
     renderParams["f" + std::to_string(entry)] = "";
     renderParams["c" + std::to_string(entry)] = "";
   }
-
+  auto tmp = resolver.renderTemplate("search", renderParams);
   return ControllerResult("/search", params, "", resolver.renderTemplate("search", renderParams));
 }
