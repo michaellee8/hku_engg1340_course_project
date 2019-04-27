@@ -5,6 +5,7 @@
 #include "menu_controller.h"
 #include "./special_controller.h"
 #include "./create_controller.h"
+#include "./search_controller.h"
 ControllerResult menuController(std::string route,
                                 std::map<std::string, std::string> params,
                                 std::string input,
@@ -12,6 +13,9 @@ ControllerResult menuController(std::string route,
   if (!input.empty()) {
     if (input == "create") {
       return createController("/create", std::map<std::string, std::string>(), "", resolver);
+    }
+    if (input == "search") {
+      return searchController("/search", std::map<std::string, std::string>(), "", resolver);
     }
     return specialController("/notimplemented", std::map<std::string, std::string>(), "", resolver);
   }

@@ -48,3 +48,23 @@ std::string readFromFS(std::string path) {
 bool keyExists(std::map<std::string, std::string> map, std::string key) {
   return map.find(key) != map.end();
 }
+
+bool isNumber(std::string s) {
+  try {
+    double value = std::stod(s);
+    return true;
+  }
+  catch (std::exception &e) {
+    return false;
+  }
+}
+
+bool isInt(std::string s) {
+  try {
+    int value = std::stoi(s);
+    return true;
+  }
+  catch (std::exception &e) {
+    return false;
+  }
+}

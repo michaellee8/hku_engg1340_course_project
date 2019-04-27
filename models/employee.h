@@ -21,7 +21,7 @@ class Employee {
   std::string fileId;
   int id;
   std::string name;
-  int age;
+  float age;
   std::string role;
   float salary;
   bool fired;

@@ -8,6 +8,7 @@
 #include "./controllers/welcome_controller.h"
 #include "./controllers/special_controller.h"
 #include "./controllers/create_controller.h"
+#include "./controllers/search_controller.h"
 
 void start();
 
@@ -31,6 +32,7 @@ void start() {
     routes["/notimplemented"] = specialController;
     routes["/notfound"] = specialController;
     routes["/create"] = createController;
+    routes["/search"] = searchController;
     TemplateResolver resolver;
 
     std::string nextInput = "";

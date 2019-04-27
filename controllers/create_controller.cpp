@@ -43,7 +43,7 @@ ControllerResult createController(std::string route,
       Employee e;
       e.name = params["input_name"];
       e.role = params["input_role"];
-      e.age = std::stoi(params["input_age"]);
+      e.age = std::stof(params["input_age"]);
       e.salary = std::stof(params["input_salary"]);
       e.fired = params["input_fired"] == "true" || params["input_fired"] == "yes";
       e.customAttr = params["input_custom"];
