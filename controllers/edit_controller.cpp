@@ -7,6 +7,7 @@
 #include "special_controller.h"
 #include "../models/employee.h"
 #include "search_controller.h"
+#include "menu_controller.h"
 
 ControllerResult editController(std::string route,
                                 std::map<std::string, std::string> params,
@@ -20,7 +21,13 @@ ControllerResult editController(std::string route,
   auto empl = Employee::select([id](Employee e) -> bool { return e.id == id; })[0];
   if (input == "delete") {
     empl.remove();
-    return searchController("/search", params, "", resolver);
+    return searchController(params["from_route"], params, "", resolver);
+  }
+  if (input == "back") {
+    return searchController(params["from_route"], params, "", resolver);
+  }
+  if (input == "menu") {
+    return menuController("/menu", std::map<std::string, std::string>(), "", resolver);
   }
 
 
@@ -34,5 +41,5 @@ ControllerResult editController(std::string route,
   renderParams["salary"] = std::to_string(empl.salary);
   renderParams["fired"] = empl.fired ? "Yes" : "No";
   renderParams["custom"] = empl.customAttr;
-  return ControllerResult("/profile", params, "", resolver.renderTemplate("profile", renderParams));
+  return ControllerResult("/edit", params, "", resolver.renderTemplate("profile", renderParams));
 }

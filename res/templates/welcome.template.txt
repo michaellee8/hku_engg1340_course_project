@@ -16,7 +16,7 @@
 #                                                                              #
 #       Type menu to continue.                                                 #
 #                                                                              #
-#                                                                              #
+# Note that you can use ".exit" to exit the program in anytime.                #
 #                            {{ author_name_1:l           }}                   #
 #                            {{ author_name_1:c           }}                   #
 #                            {{ author_name_1:r           }}                   #

@@ -13,6 +13,7 @@
 #include "../models/employee.h"
 #include "cmath"
 #include "menu_controller.h"
+#include "edit_controller.h"
 
 const std::vector<std::string> criterias{
     "id",
@@ -86,8 +87,10 @@ ControllerResult searchController(std::string route,
   }
 
   // Process editing command
-  if (isInt(input)) {
-
+  if (isInt(input) && Employee::select([input](Employee e) -> bool { return std::stoi(input) == e.id; }).size() > 0) {
+    params["from_route"] = "/search";
+    params["id"] = input;
+    return editController("/edit", params, "", resolver);
   }
 
 
@@ -153,6 +156,6 @@ ControllerResult searchController(std::string route,
     renderParams["f" + std::to_string(entry)] = "";
     renderParams["c" + std::to_string(entry)] = "";
   }
-  auto tmp = resolver.renderTemplate("search", renderParams);
+//  auto tmp = resolver.renderTemplate("search", renderParams);
   return ControllerResult("/search", params, "", resolver.renderTemplate("search", renderParams));
 }

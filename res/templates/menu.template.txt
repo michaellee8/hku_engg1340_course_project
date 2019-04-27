@@ -3,13 +3,12 @@
 
 
     Menu: type the respective command to do the function
-    - Create new employee                  : create
-    - Search for/delete/edit/fire employee : search
-    - Query system                         : query
+    - Create new employee                           : create
+    - Search for/list all/delete/edit/fire employee : search
+    - Query system                                  : query
 
 
-
-
+Note that you can use ".exit" to exit the program in anytime.
 
 
 
