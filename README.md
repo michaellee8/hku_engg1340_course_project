@@ -34,4 +34,4 @@ Maybe we can make a Python-like query system that allow users to do complex quer
 
 ## Execution instruction
 For ssh user, run `./prep.sh` first before using the app in current working directory.
-The first page of the program is the welcome teamplate. User should input `'menu'` to get into the menu page. User can choose different function by inputtung the respective command.
+The first page of the program is the welcome teamplate. User should input `'menu'` to get into the menu page. User can choose different function by inputtung the respective command. For create function, the program will require user to input the `name`, `age`, `role`, `salary`, `fired`(whether the employee is fired or not) and `custom`. Note that user should input `'yes'` or `'no'` for the `fired` attribute.  
