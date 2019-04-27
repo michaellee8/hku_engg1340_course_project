@@ -20,7 +20,8 @@ const std::vector<std::string> criterias{
     "age",
     "role",
     "salary higher",
-    "salary lower"
+    "salary lower",
+    "all"
 };
 
 ControllerResult searchController(std::string route,
@@ -47,11 +48,11 @@ ControllerResult searchController(std::string route,
   }
   if (!keyExists(params, "value")) {
     // No value yet
-
     if (input != "") {
       // Take input as value if it is reasonable
       if (params["criteria"] == "name" ||
           params["criteria"] == "role" ||
+          params["criteria"] == "all" ||
           ((params["criteria"] == "age" || params["criteria"] == "salary higher"
               || params["criteria"] == "salary lower") && isNumber(input)) ||
           (params["criteria"] == "id" && isInt(input))
@@ -113,6 +114,8 @@ ControllerResult searchController(std::string route,
     auto salary = std::stof(params["value"]);
     queryResult =
         Employee::select([salary](Employee e) -> bool { return e.salary <= salary; });
+  } else if (params["criteria"] == "all") {
+    queryResult = Employee::select([](Employee e) -> bool { return true; });
   }
 
   if (!keyExists(params, "page") || !keyExists(params, "total_pages")

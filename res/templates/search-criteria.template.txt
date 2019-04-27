@@ -10,5 +10,6 @@
         - "role"
         - "salary higher"
         - "salary lower"
+        - "all" (input any non-empty value to continue in next page)
 
 Criteria:
