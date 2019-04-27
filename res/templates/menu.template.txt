@@ -3,12 +3,9 @@
 
 
     Menu: type the respective command to do the function
-    1. Create new employee : create
-    2. Search for employee : search
-    3. List all employees  : list
-    4. Delete employee     : delete
-    5. Edit/Fire employee  : edit
-    6. Query system        : query
+    - Create new employee                  : create
+    - Search for/delete/edit/fire employee : search
+    - Query system                         : query
 
 
 

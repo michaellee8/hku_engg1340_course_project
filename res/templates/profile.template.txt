@@ -1,0 +1,18 @@
+Currently showing {{name:l                                       }} {{id:l}}
+
+    fileID: {{fid:l                                                           }}
+        ID: {{id:l                   }}
+      Name: {{name:l                                                          }}
+       Age: {{age:l                                        }}
+      Role: {{role:l                                                          }}
+    Salary: {{salary:l                                     }}
+     Fired: {{fired:l                                 }}
+    Custom: {{custom:l                                                        }}
+
+Enter "name"/"age"/"role"/"salary"/"fired"/"custom" to edit such attribute
+Enter "delete" to delete this employee from database
+Enter "back" to return to employee list
+Enter "menu" to return to menu
+Enter ".exit" to exit this program
+
+Command:

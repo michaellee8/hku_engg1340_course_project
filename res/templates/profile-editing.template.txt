@@ -1,0 +1,15 @@
+Currently showing {{name:l                                       }} {{id:l}}
+
+    fileID: {{fid:l                                                           }}
+        ID: {{id:l                   }}
+      Name: {{name:l                                                          }}
+       Age: {{age:l                                        }}
+      Role: {{role:l                                                          }}
+    Salary: {{salary:l                                     }}
+     Fired: {{fired:l                                 }}
+    Custom: {{custom:l                                                        }}
+
+Please enter new value for {{field:l                   }}
+
+
+Value:
