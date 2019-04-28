@@ -24,15 +24,12 @@ All attributes should be well-input when adding new employees. Therefore, data m
 ## Template system
 In this project, we use a modular template system that allow us to work easier. All templates are resolved against `res/templates`. Templates are strings with a specific markers are place holders, e.g. `{{ text}}`. Each time a template is resolved, placeholders will be replaced with strings provided padded or cut into length of the placeholder. For example, given `{{_text___}}`, which have 12 characters, and text `abc`, it will be replaced into `abc_________`. Note that `_` represent spaces. Now the version requires you to put `c|l|r` to represent alignment of the text inserted.
 
-## System archietecture
-In this project, we adapt a highly modular, maintainable, reusbale and productive MVC architecture. The V (view) is inside `res/templates`, which is consumed by the template system in `template_resolver` as noted above. The M (model) is inside `models/employee`, which attempts to construct a ORM following the Active Record pattern. The C (controller) is inside `controllers`, which consumes user input, routing parameters, models and views to provide program output, which is consumed by the main digest loop located in `main.cpp`. The backend components of the query system is located in `controllers/querysys`, which provides reusable components for the query system.
-
 ## Some tips
 1. Never write `using namespace std;` please, it is harmful.
 2. This application only support linux officially, there are no guarantee to work on Windows or Mac. Mac may have better probability on working since it is Unix-based.
 3. You are highly suggest to use CLion to develop this thing, it just works.
 
-## Additional function
+## Additional funcion
 Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|custom`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically less advanced version of SQL.
 
 ## Execution instruction
@@ -46,18 +43,6 @@ For `search` function, user can search for employees according to different attr
 
 In the managing page, user can choose to input the attribute name to edit the corresponding value of the employee. For example, to edit `role` of the employee, type 'role' in the managing page, and input the new value of `role`. The new value of employee `role` will then be saved. User can also enter 'delete' to remove the whole employee from the employee list. To get back to the list , type 'list'. Type 'menu' to get back to the menu page. User can also type '.exit' to exit the program directly.
 
-To exit the program, user can always input '.exit' to stop the entire program.
+For `query` function, after inputting 'query' in the menu page, user will see an empty list of employees. User can then enter comparison statements to search for employees. For example, `salary > 10000`. Our system also allows combined comparision statements. For example, `salary > 10000 and age < 20`. Note that the query function does not support `fired` attribute. And for `name`, `role` and `custom`, user should double quote the value of the attribute. For example, `name == "micheal"`. After getting the results of the query, if user want to do another query, user should input 'menu' to get back to the menu page , and type 'query' again to perform another query. 
 
-## Building instructions
-Assuming you are using a linux user with sudo here.
-1. `cd ~`
-2. `sudo apt-get install g++ gcc cmake make git`
-3. `git clone https://github.com/michaellee8/hku_engg1340_course_project.git`
-4. `cd hku_engg1340_course_project`
-5. `mkdir build`
-6. `cd build`
-7. `cmake ..`
-8. `make`
-9. `cd ../`
-10. `./prep.sh`
-11. `./build/hku_engg1340_course_project`
+To exit the program, user can always input '.exit' to stop the entire program.
