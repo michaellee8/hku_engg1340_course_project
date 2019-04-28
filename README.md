@@ -24,12 +24,15 @@ All attributes should be well-input when adding new employees. Therefore, data m
 ## Template system
 In this project, we use a modular template system that allow us to work easier. All templates are resolved against `res/templates`. Templates are strings with a specific markers are place holders, e.g. `{{ text}}`. Each time a template is resolved, placeholders will be replaced with strings provided padded or cut into length of the placeholder. For example, given `{{_text___}}`, which have 12 characters, and text `abc`, it will be replaced into `abc_________`. Note that `_` represent spaces. Now the version requires you to put `c|l|r` to represent alignment of the text inserted.
 
+## System archietecture
+In this project, we adapt a highly modular, maintainable, reusbale and productive MVC architecture. The V (view) is inside `res/templates`, which is consumed by the template system in `template_resolver` as noted above. The M (model) is inside `models/employee`, which attempts to construct a ORM following the Active Record pattern. The C (controller) is inside `controllers`, which consumes user input, routing parameters, models and views to provide program output, which is consumed by the main digest loop located in `main.cpp`. The backend components of the query system is located in `controllers/querysys`, which provides reusable components for the query system.
+
 ## Some tips
 1. Never write `using namespace std;` please, it is harmful.
 2. This application only support linux officially, there are no guarantee to work on Windows or Mac. Mac may have better probability on working since it is Unix-based.
 3. You are highly suggest to use CLion to develop this thing, it just works.
 
-## Additional funcion
+## Additional function
 Maybe we can make a Python-like query system that allow users to do complex query on specifying `id|name|age|role|salary|custom`, with logic operator `or|and` and comparison operator `<|<=|>|>=|=`.This is basically less advanced version of SQL.
 
 ## Execution instruction
