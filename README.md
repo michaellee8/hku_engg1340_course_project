@@ -44,3 +44,17 @@ For `search` function, user can search for employees according to different attr
 In the managing page, user can choose to input the attribute name to edit the corresponding value of the employee. For example, to edit `role` of the employee, type 'role' in the managing page, and input the new value of `role`. The new value of employee `role` will then be saved. User can also enter 'delete' to remove the whole employee from the employee list. To get back to the list , type 'list'. Type 'menu' to get back to the menu page. User can also type '.exit' to exit the program directly.
 
 To exit the program, user can always input '.exit' to stop the entire program.
+
+## Building instructions
+Assuming you are using a linux user with sudo here.
+1. `cd ~`
+2. `sudo apt-get install g++ gcc cmake make git`
+3. `git clone https://github.com/michaellee8/hku_engg1340_course_project.git`
+4. `cd hku_engg1340_course_project`
+5. `mkdir build`
+6. `cd build`
+7. `cmake ..`
+8. `make`
+9. `cd ../`
+10. `./prep.sh`
+11. `./build/hku_engg1340_course_project`
