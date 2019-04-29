@@ -46,3 +46,17 @@ In the managing page, user can choose to input the attribute name to edit the co
 For `query` function, after inputting 'query' in the menu page, user will see an empty list of employees. User can then enter comparison statements (with comparision operators `<|<=|>|>=|=`) to search for employees. For example, `salary > 10000`. Our system also allows combined comparision statements (with logical operators `and|or`). For example, `salary > 10000 and age < 20`. Note that the query function does not support `fired` attribute. And for `name`, `role` and `custom`, user should double quote the value of the attribute. For example, `name = "micheal"`. After getting the results of the query, if user want to do another query, user should input 'menu' to get back to the menu page , and type 'query' again to perform another query. 
 
 To exit the program, user can always input '.exit' to stop the entire program.
+
+## Building instructions
+Assuming you are using a linux user with sudo here.
+1. `cd ~`
+2. `sudo apt-get install g++ gcc cmake make git`
+3. `git clone https://github.com/michaellee8/hku_engg1340_course_project.git`
+4. `cd hku_engg1340_course_project`
+5. `mkdir build`
+6. `cd build`
+7. `cmake ..`
+8. `make`
+9. `cd ../`
+10. `./prep.sh`
+11. `./build/hku_engg1340_course_project`
